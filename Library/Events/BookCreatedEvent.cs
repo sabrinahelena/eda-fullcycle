@@ -1,6 +1,7 @@
 ﻿using Events.pkg.events.interfaces;
+using Library.Entities;
 
-namespace Library;
+namespace Library.Events;
 
 public class BookCreatedEvent : IEventInterface
 {

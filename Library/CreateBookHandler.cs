@@ -1,4 +1,6 @@
 ﻿using Events.pkg.events.interfaces;
+using Library.Entities;
+using Library.Events;
 
 namespace Library;
 
