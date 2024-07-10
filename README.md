@@ -24,28 +24,39 @@ The first project I have uploaded is focused on creating an Event Dispatcher. Th
 - **Check Handlers**: Verifies if a handler is registered for a specific event.
 - **Clear Handlers**: Clears all registered handlers.
 
-### 2. Book Creation with Event Handling
+### 2. Book Management with Event Handling
 
-The second project builds on the Event Dispatcher project by implementing a simple library system that creates books and generates events when a new book is added to the inventory. This project demonstrates how to use the event dispatcher and handler system to manage events in a practical application.
+The second project builds on the Event Dispatcher project by implementing a simple library system that creates and updates books, generating events when these actions occur. This project demonstrates how to use the event dispatcher and handler system to manage events in a practical application.
 
 #### Components
 
 - **Book**: Represents a book with a title, author, and published date.
 - **BookCreatedEvent**: Event triggered when a new book is created.
+- **BookUpdatedEvent**: Event triggered when an existing book is updated.
 - **CreateBookHandler**: Handles the creation of books and dispatches the `BookCreatedEvent`.
+- **UpdateBookHandler**: Handles the updating of books and dispatches the `BookUpdatedEvent`.
 - **BookCreatedEventHandler**: Handles the `BookCreatedEvent` to perform actions when a new book is created.
+- **BookUpdatedEventHandler**: Handles the `BookUpdatedEvent` to perform actions when a book is updated.
 
 #### Example Usage
 
-Here's how the process of creating a book and handling the event works:
+Here's how the process of creating and updating a book, and handling the events works:
 
 1. **Setup the Event Dispatcher and Handlers**:
     - An instance of `EventDispatcher` is created.
-    - Handlers are registered to listen for the `BookCreatedEvent`.
+    - Handlers are registered to listen for the `BookCreatedEvent` and `BookUpdatedEvent`.
 
 2. **Create a Book**:
     - The `CreateBookHandler` is used to create a new book.
     - When a book is created, a `BookCreatedEvent` is dispatched.
 
-3. **Handle the Event**:
-    - The `BookCreatedEventHandler` receives the event and processes it, such as logging the book details to the console.
+3. **Update a Book**:
+    - The `UpdateBookHandler` is used to update an existing book.
+    - When a book is updated, a `BookUpdatedEvent` is dispatched.
+
+4. **Handle the Events**:
+    - The `BookCreatedEventHandler` receives the `BookCreatedEvent` and processes it, such as logging the book details to the console.
+    - The `BookUpdatedEventHandler` receives the `BookUpdatedEvent` and processes it, such as logging the updated book details to the console.
+
+5. **Remove a Handler**:
+    - Handlers can be removed from the `EventDispatcher`. For example, the `BookCreatedEventHandler` can be removed, and subsequent book creations will not trigger this handler.
