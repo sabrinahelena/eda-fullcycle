@@ -18,13 +18,13 @@ jobs:
     - name: Set up .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: '8.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore Events/Events.sln
 
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build Events/Events.sln --no-restore
 
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test Events/Events.sln --no-build --verbosity normal
